@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, send_from_directory
 import glob
 import re
 import json
@@ -42,6 +42,13 @@ def get_randomized(universe):
 def get_global_randomized():
     universes = json.loads(get_list())
     return get_randomized(random.choice(universes))
+
+
+# management of well-known for LetsEncrypt
+@app.route("/.well-known/<path:path>")
+def well_known(path):
+    pwd = os.path.dirname(os.path.abspath(__file__))
+    return send_from_directory(os.path.join(pwd, ".well-known"), path)
 
 
 if __name__ == "__main__":
