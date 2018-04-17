@@ -25,7 +25,7 @@ def get_universe(universe):
     try:
         with open("{}/files/{}.names".format(my_path, universe)) as f:
             return json.dumps([l.strip() for l in f.readlines()])
-    except:
+    except FileNotFoundError:
         return "ERROR"
 
 
@@ -34,7 +34,7 @@ def get_randomized(universe):
     try:
         with open("{}/files/{}.names".format(my_path, universe)) as f:
             return random.choice(f.readlines()).strip()
-    except:
+    except FileNotFoundError:
         return "ERROR"
 
 
