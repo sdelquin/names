@@ -3,5 +3,5 @@
 
 cd "$(dirname "$0")"
 PYTHON_VENV=$(pipenv --venv)
-SOCKET=$(cat .env | grep UWSGI_PORT | cut -f 2 -d '=' | xargs)
+SOCKET=$(grep UWSGI_PORT .env | sed 's/.*=\s*//')
 exec uwsgi --home $PYTHON_VENV --socket :$SOCKET --ini uwsgi.ini
