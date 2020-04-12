@@ -8,5 +8,5 @@ def deploy():
     with prefix('source ~/.virtualenvs/names/bin/activate'):
         with cd('~/code/names'):
             run('git pull')
-            run('pip install -r requirements')
+            run('pip install -r requirements.txt')
             run('supervisorctl restart names')
