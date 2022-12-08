@@ -5,7 +5,7 @@ env.hosts = ['cloud']
 
 def deploy():
     local('git push')
-    with prefix('source ~/.virtualenvs/names/bin/activate'):
+    with prefix('source ~/.pyenv/versions/names/bin/activate'):
         with cd('~/code/names'):
             run('git pull')
             run('pip install -r requirements.txt')
