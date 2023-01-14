@@ -1,4 +1,0 @@
-[2022-12-06 21:02:32 +0000] [35106] [INFO] Starting gunicorn 20.1.0
-[2022-12-06 21:02:32 +0000] [35106] [INFO] Listening at: unix:/tmp/names.sock (35106)
-[2022-12-06 21:02:32 +0000] [35106] [INFO] Using worker: sync
-[2022-12-06 21:02:32 +0000] [35113] [INFO] Booting worker with pid: 35113
