@@ -1,0 +1,16 @@
+[project]
+name = "names"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "flask>=3.1.0",
+]
+
+[dependency-groups]
+dev = [
+    "ipython>=9.2.0",
+    "pytest>=8.3.5",
+]
+prod = [
+    "gunicorn>=23.0.0",
+]
