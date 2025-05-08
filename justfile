@@ -4,7 +4,7 @@
 
 [macos]
 run:
-    uv python main.py
+    uv run python main.py
 
 [macos]
 sync:
@@ -22,5 +22,10 @@ run:
 sync:
     uv sync --no-dev --group prod
 
+# ==============================================================================
+# Miscellaneous
+# ==============================================================================
+
 deploy: && sync
     git pull
+    supervisorctl restart names
