@@ -2,30 +2,28 @@
 # Development Environment (macOS)
 # ==============================================================================
 
+# Run program
 [macos]
 run:
     uv run python main.py
 
-[macos]
-sync:
-    uv sync --no-group prod
-
-# ==============================================================================
-# Production Environment (Linux)
-# ==============================================================================
-
+# Run program
 [linux]
 run:
     uv run gunicorn -b unix:/tmp/names.sock main:app
 
+# Sync uv
+[macos]
+sync:
+    uv sync --no-group prod
+
+# Sync uv
 [linux]
 sync:
     uv sync --no-dev --group prod
 
-# ==============================================================================
-# Miscellaneous
-# ==============================================================================
-
-deploy: && sync
+# Deploy program
+deploy:
     git pull
+    just sync
     supervisorctl restart names
